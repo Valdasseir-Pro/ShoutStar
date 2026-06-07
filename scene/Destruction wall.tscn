@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bwx5c2kr4r314"]
+
+[ext_resource type="Script" uid="uid://dfvlfldcunda4" path="res://Script/destruction_wall.gd" id="1_aulqi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33cqm"]
+size = Vector2(63, 239)
+
+[node name="Area2D" type="Area2D" unique_id=814877826]
+script = ExtResource("1_aulqi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2118432182]
+shape = SubResource("RectangleShape2D_33cqm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

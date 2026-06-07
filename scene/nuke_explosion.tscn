@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bctvqwnxdg0xu"]
+
+[ext_resource type="Script" uid="uid://br8uutearjvia" path="res://Script/explosion_particle.gd" id="1_kronj"]
+[ext_resource type="AudioStream" uid="uid://ch5thrue7t0su" path="res://assets/Sound/dragon-studio-explosion-sound-effect-425455.mp3" id="2_ruw4j"]
+
+[sub_resource type="Gradient" id="Gradient_hp4bs"]
+offsets = PackedFloat32Array(0, 0.5709459, 0.7939189, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.63529414, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0)
+
+[node name="Nuke_explosion" type="CPUParticles2D" unique_id=416192304]
+scale = Vector2(1.5, 1.5)
+emitting = false
+amount = 20000
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 60.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_hp4bs")
+script = ExtResource("1_kronj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=22700603]
+stream = ExtResource("2_ruw4j")
+volume_db = -20.0
+bus = &"Explosion"

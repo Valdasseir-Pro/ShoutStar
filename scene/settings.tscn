@@ -1,0 +1,344 @@
+[gd_scene format=3 uid="uid://cg2wugf3otso6"]
+
+[ext_resource type="Script" uid="uid://ylqt0au4pkfw" path="res://Script/sound.gd" id="1_likc5"]
+[ext_resource type="Script" uid="uid://bm2y4fjjbvbup" path="res://Script/settings.gd" id="1_ok4lx"]
+[ext_resource type="Script" uid="uid://rwgswhsnknnj" path="res://Script/fullscreen.gd" id="3_uhf66"]
+[ext_resource type="Script" uid="uid://bl2xymvwc2iog" path="res://Script/remaping_button.gd" id="3_wyye3"]
+[ext_resource type="Script" uid="uid://bcburvire5bo" path="res://Script/language.gd" id="4_ftovt"]
+[ext_resource type="Script" uid="uid://besn1w850sx8d" path="res://Script/reset.gd" id="4_keur6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ok4lx"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhf66"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ftovt"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyye3"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_keur6"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdort"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3kf0"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6q7o"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_65vpt"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_dmpxh"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_4pcrv"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkyj2"]
+font_size = 20
+
+[node name="Settings" type="Control" unique_id=1377395239]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ok4lx")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=675221146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+tab_0/title = "SOUND_ONGLET_SETTINGS"
+tab_1/title = "COMMAND_ONGLET_SETTINGS"
+tab_2/title = "OTHER_ONGLET_SETTINGS"
+
+[node name="Son" type="Control" parent="TabContainer" unique_id=557475536]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "SOUND_ONGLET_SETTINGS"
+
+[node name="Label" type="Label" parent="TabContainer/Son" unique_id=1897241553]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 101.0
+offset_right = 20.0
+offset_bottom = 124.0
+grow_horizontal = 2
+text = "VOLUME_SETTINGS"
+label_settings = SubResource("LabelSettings_ok4lx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Son" unique_id=83198596]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -28.0
+offset_right = 99.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label4" type="Label" parent="TabContainer/Son/VBoxContainer" unique_id=1140517820]
+layout_mode = 2
+text = "MASTER_VOLUME_SETTINGS"
+label_settings = SubResource("LabelSettings_uhf66")
+
+[node name="Master" type="HSlider" parent="TabContainer/Son/VBoxContainer" unique_id=466703477]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("1_likc5")
+audio_bus = "Master"
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Son/VBoxContainer" unique_id=476690341]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Son/VBoxContainer" unique_id=1602692773]
+layout_mode = 2
+text = "MUSIC_VOLUME_SETTINGS"
+label_settings = SubResource("LabelSettings_ftovt")
+
+[node name="Musique" type="HSlider" parent="TabContainer/Son/VBoxContainer" unique_id=761374484]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("1_likc5")
+audio_bus = "Music"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Son/VBoxContainer" unique_id=641913142]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Son/VBoxContainer" unique_id=594041739]
+layout_mode = 2
+text = "EXPLOSION_VOLUME_SETTINGS"
+label_settings = SubResource("LabelSettings_wyye3")
+
+[node name="Explosion" type="HSlider" parent="TabContainer/Son/VBoxContainer" unique_id=1261819232]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("1_likc5")
+audio_bus = "Explosion"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Son/VBoxContainer" unique_id=1540075603]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="TabContainer/Son/VBoxContainer" unique_id=281344494]
+layout_mode = 2
+text = "SHOOT_VOLUME_SETTINGS"
+label_settings = SubResource("LabelSettings_keur6")
+
+[node name="Tirs" type="HSlider" parent="TabContainer/Son/VBoxContainer" unique_id=190764024]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("1_likc5")
+audio_bus = "Shoot"
+
+[node name="Commande" type="Control" parent="TabContainer" unique_id=305593028]
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "COMMAND_ONGLET_SETTINGS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Commande" unique_id=2035130488]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Haut" type="HBoxContainer" parent="TabContainer/Commande/VBoxContainer" unique_id=840280100]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Commande/VBoxContainer/Haut" unique_id=1436094382]
+layout_mode = 2
+text = "UP_BUTTON_LABEL"
+label_settings = SubResource("LabelSettings_bdort")
+
+[node name="Button" type="Button" parent="TabContainer/Commande/VBoxContainer/Haut" unique_id=989235843]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("3_wyye3")
+action_name = "Haut"
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Commande/VBoxContainer" unique_id=1094175282]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Bas" type="HBoxContainer" parent="TabContainer/Commande/VBoxContainer" unique_id=688782370]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Commande/VBoxContainer/Bas" unique_id=1299270861]
+layout_mode = 2
+text = "DOWN_BUTTON_LABEL"
+label_settings = SubResource("LabelSettings_h3kf0")
+
+[node name="Button" type="Button" parent="TabContainer/Commande/VBoxContainer/Bas" unique_id=110483025]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("3_wyye3")
+action_name = "Bas"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Commande/VBoxContainer" unique_id=844413469]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Gauche" type="HBoxContainer" parent="TabContainer/Commande/VBoxContainer" unique_id=553613874]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Commande/VBoxContainer/Gauche" unique_id=694025864]
+layout_mode = 2
+text = "LEFT_BUTTON_LABEL"
+label_settings = SubResource("LabelSettings_w6q7o")
+
+[node name="Button" type="Button" parent="TabContainer/Commande/VBoxContainer/Gauche" unique_id=1495078564]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("3_wyye3")
+action_name = "Gauche"
+
+[node name="HSeparator3" type="HSeparator" parent="TabContainer/Commande/VBoxContainer" unique_id=873910718]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Droite" type="HBoxContainer" parent="TabContainer/Commande/VBoxContainer" unique_id=995581420]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Commande/VBoxContainer/Droite" unique_id=199232207]
+layout_mode = 2
+text = "RIGHT_BUTTON_LABEL"
+label_settings = SubResource("LabelSettings_65vpt")
+
+[node name="Button" type="Button" parent="TabContainer/Commande/VBoxContainer/Droite" unique_id=748876655]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("3_wyye3")
+action_name = "Droite"
+
+[node name="HSeparator4" type="HSeparator" parent="TabContainer/Commande/VBoxContainer" unique_id=29005869]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Shoot" type="HBoxContainer" parent="TabContainer/Commande/VBoxContainer" unique_id=1807178380]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/Commande/VBoxContainer/Shoot" unique_id=283624333]
+layout_mode = 2
+text = "SHOOT_BUTTON_LABEL"
+label_settings = SubResource("LabelSettings_dmpxh")
+
+[node name="Button" type="Button" parent="TabContainer/Commande/VBoxContainer/Shoot" unique_id=1147587304]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("3_wyye3")
+action_name = "Shoot"
+
+[node name="HSeparator5" type="HSeparator" parent="TabContainer/Commande/VBoxContainer" unique_id=1751544112]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Reset" type="Button" parent="TabContainer/Commande/VBoxContainer" unique_id=342094406]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "RESET_INPUT_BUTTON"
+script = ExtResource("4_keur6")
+
+[node name="Autres" type="Control" parent="TabContainer" unique_id=759022670]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "OTHER_ONGLET_SETTINGS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Autres" unique_id=1189724715]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -51.0
+offset_right = 156.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TabContainer/Autres/VBoxContainer" unique_id=290874481]
+layout_mode = 2
+text = "FULLSCREEN_MODE"
+label_settings = SubResource("LabelSettings_4pcrv")
+
+[node name="CheckButton" type="CheckButton" parent="TabContainer/Autres/VBoxContainer" unique_id=1670456007]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_uhf66")
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Autres/VBoxContainer" unique_id=933897806]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="TabContainer/Autres/VBoxContainer" unique_id=1522202973]
+layout_mode = 2
+text = "LANGUAGE_SETTINGS"
+label_settings = SubResource("LabelSettings_fkyj2")
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Autres/VBoxContainer" unique_id=140981310]
+layout_mode = 2
+script = ExtResource("4_ftovt")
+
+[node name="Button" type="Button" parent="." unique_id=1929662187]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -20.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "BACK_BTN_SETTINGS"
+
+[connection signal="drag_ended" from="TabContainer/Son/VBoxContainer/Master" to="TabContainer/Son/VBoxContainer/Master" method="_on_drag_ended"]
+[connection signal="value_changed" from="TabContainer/Son/VBoxContainer/Master" to="TabContainer/Son/VBoxContainer/Master" method="_on_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Son/VBoxContainer/Musique" to="TabContainer/Son/VBoxContainer/Musique" method="_on_drag_ended"]
+[connection signal="value_changed" from="TabContainer/Son/VBoxContainer/Musique" to="TabContainer/Son/VBoxContainer/Musique" method="_on_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Son/VBoxContainer/Explosion" to="TabContainer/Son/VBoxContainer/Explosion" method="_on_drag_ended"]
+[connection signal="value_changed" from="TabContainer/Son/VBoxContainer/Explosion" to="TabContainer/Son/VBoxContainer/Explosion" method="_on_value_changed"]
+[connection signal="drag_ended" from="TabContainer/Son/VBoxContainer/Tirs" to="TabContainer/Son/VBoxContainer/Tirs" method="_on_drag_ended"]
+[connection signal="value_changed" from="TabContainer/Son/VBoxContainer/Tirs" to="TabContainer/Son/VBoxContainer/Tirs" method="_on_value_changed"]
+[connection signal="toggled" from="TabContainer/Autres/VBoxContainer/CheckButton" to="TabContainer/Autres/VBoxContainer/CheckButton" method="_on_toggled_fullscreen"]
+[connection signal="item_selected" from="TabContainer/Autres/VBoxContainer/OptionButton" to="TabContainer/Autres/VBoxContainer/OptionButton" method="_on_language_selected"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

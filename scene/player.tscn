@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://yrio0wwabdqi"]
+
+[ext_resource type="Script" uid="uid://u4iaerkovx06" path="res://Script/player.gd" id="1_fvtld"]
+[ext_resource type="Texture2D" uid="uid://c3u2iamsaewri" path="res://assets/trust/Starship_ThrustersAndBoosters_Pack01_v1/Starship_ThrusterBooster_01_Spritesheet.png" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://dh8uuj01fqi4u" path="res://assets/player/Vaisseau.png" id="1_xo3ru"]
+[ext_resource type="AudioStream" uid="uid://dev23mqxwe6se" path="res://assets/Sound/soundreality-whoosh-gaming-blaster-243492.mp3" id="4_ct4mp"]
+[ext_resource type="AudioStream" uid="uid://didux2c0ncvo0" path="res://assets/Sound/dragon-studio-loud-explosion-425457.mp3" id="5_s4jxa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvtld"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4jxa"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh5ij"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp4bs"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2vtq"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(160, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fvbb"]
+atlas = ExtResource("1_hjaqi")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjaqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvtld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct4mp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4jxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh5ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp4bs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2vtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fvbb")
+}],
+"loop": true,
+"name": &"trust",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihjo1"]
+size = Vector2(17, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml7e8"]
+size = Vector2(35, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
+size = Vector2(25, 2)
+
+[node name="Player" type="CharacterBody2D" unique_id=167124977 groups=["Player"]]
+script = ExtResource("1_fvtld")
+
+[node name="Trust" type="Area2D" parent="." unique_id=1658961954]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Trust" unique_id=179651246]
+texture_filter = 1
+position = Vector2(-31, 0)
+sprite_frames = SubResource("SpriteFrames_hjaqi")
+animation = &"trust"
+autoplay = "trust"
+frame_progress = 0.17245944
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trust" unique_id=105799576]
+position = Vector2(-26.5, 0)
+shape = SubResource("RectangleShape2D_ihjo1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1694681522]
+texture_filter = 1
+texture = ExtResource("1_xo3ru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1774411881]
+position = Vector2(4, -1)
+shape = SubResource("RectangleShape2D_ml7e8")
+
+[node name="GunPoint1" type="Marker2D" parent="." unique_id=2083265675]
+position = Vector2(23, -3)
+
+[node name="GunPoint2" type="Marker2D" parent="." unique_id=991027893]
+position = Vector2(23, 3)
+
+[node name="DetecteArea" type="Area2D" parent="." unique_id=367703914]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetecteArea" unique_id=883176872]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_fvtld")
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=300132187]
+stream = ExtResource("4_ct4mp")
+volume_db = -35.0
+bus = &"Shoot"
+
+[node name="Damage" type="AudioStreamPlayer" parent="." unique_id=1482650829]
+stream = ExtResource("5_s4jxa")
+volume_db = -25.0
+bus = &"Explosion"
+
+[connection signal="area_entered" from="Trust" to="." method="_on_trust_area_entered"]
+[connection signal="area_entered" from="DetecteArea" to="." method="_on_detecte_area_entered"]

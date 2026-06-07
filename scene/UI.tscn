@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://xqr1iie80fxe"]
+
+[ext_resource type="Texture2D" uid="uid://c0ukqcsurdncl" path="res://assets/ui/life/hearts.png" id="1_c73ev"]
+[ext_resource type="Script" uid="uid://rmyvbcbgumps" path="res://Script/ui.gd" id="1_qe48f"]
+[ext_resource type="AudioStream" uid="uid://8x77epl6y1jl" path="res://assets/Sound/yodguard-warning_low-2-540185.mp3" id="3_cbomc"]
+
+[sub_resource type="Gradient" id="Gradient_qe48f"]
+offsets = PackedFloat32Array(0, 0.7352941, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.61960787, 0, 0, 0, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cbomc"]
+gradient = SubResource("Gradient_qe48f")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1628591493 groups=["UI"]]
+script = ExtResource("1_qe48f")
+
+[node name="Control" type="Control" parent="." unique_id=951184276]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1182159676]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.800001
+anchor_bottom = 16.2
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_cbomc")
+
+[node name="Label" type="Label" parent="Control" unique_id=831529038]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.500001
+anchor_top = 0.77500004
+anchor_right = 16.525002
+anchor_bottom = 2.15
+offset_left = -3.0517578e-05
+offset_right = -6.1035156e-05
+theme_override_font_sizes/font_size = 40
+text = "Score : 0"
+
+[node name="Heart" type="HBoxContainer" parent="Control" unique_id=683933148]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.2
+anchor_top = 0.8
+anchor_right = 7.7750006
+anchor_bottom = 2.375
+offset_right = -3.0517578e-05
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Heart 1" type="TextureRect" parent="Control/Heart" unique_id=1281503271]
+layout_mode = 2
+texture = ExtResource("1_c73ev")
+expand_mode = 2
+
+[node name="Heart 2" type="TextureRect" parent="Control/Heart" unique_id=1533126033]
+layout_mode = 2
+texture = ExtResource("1_c73ev")
+expand_mode = 2
+
+[node name="Heart 3" type="TextureRect" parent="Control/Heart" unique_id=1414275410]
+layout_mode = 2
+texture = ExtResource("1_c73ev")
+expand_mode = 2
+
+[node name="Death signal" type="AudioStreamPlayer" parent="Control" unique_id=1642883795]
+stream = ExtResource("3_cbomc")
+volume_db = -10.0
